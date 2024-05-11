@@ -1,0 +1,83 @@
+{
+    "tables": [
+        {
+        "table_name": "Users",
+        "columns": [
+            {
+                "column_name": "UserID",
+                "column_type": "INT",
+                "key": true
+            },
+            {
+                "column_name": "First_Name",
+                "column_type": "VARCHAR(255)",
+                "key": false
+            },
+            {
+                "column_name": "Second_Name",
+                "column_type": "VARCHAR(255)",
+                "key": false
+            },
+            {
+                "column_name": "email",
+                "column_type": "VARCHAR(255)",
+                "key": false
+            }
+        ]
+        },
+        {
+        "table_name": "Messages",
+        "columns": [
+            {
+                "column_name": "MessageID",
+                "column_type": "INT",
+                "key": true
+            },
+            {
+                "column_name": "Message_Subject",
+                "column_type": "VARCHAR(255)",
+                "key": false
+            },
+            {
+                "column_name": "Message_Contents",
+                "column_type": "VARCHAR(255)",
+                "key": false
+            }
+        ]
+        },
+        {
+        "table_name": "UserMessages",
+        "columns": [
+            {
+                "column_name": "UserMessageID",
+                "column_type": "INT",
+                "key": true
+            },
+            {
+                "column_name": "UserID",
+                "column_type": "INT",
+                "key": false
+            },
+            {
+                "column_name": "MessageID",
+                "column_type": "INT",
+                "key": false
+            }
+        ]
+        }
+    ],
+    "relations": [
+        {
+            "tableA": "Users",
+            "colA": "UserID",
+            "tableB": "UserMessages",
+            "colB": "UserID"
+        },
+        {
+            "tableA": "Messages",
+            "colA": "MessageID",
+            "tableB": "UserMessages",
+            "colB": "MessageID"
+        }
+    ]
+}
